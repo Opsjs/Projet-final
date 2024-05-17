@@ -23,21 +23,6 @@ public class ArcherEnemy : Enemy
             Shoot();
             LastTimeShot = Time.time;
         }
-        /*if (player.position.x <= transform.position.x)
-        {
-            Debug.Log("player on the left");
-            _horizontalSpeed = 1;
-        }
-        else if (player.position.x >= transform.position.x)
-        {
-            Debug.Log("Player on the right");
-            _horizontalSpeed = -1;
-        }
-        else 
-        { 
-            _horizontalSpeed = 0;
-        }
-        _ApplyHorizontalSpeed();*/
     }
     private void Shoot()
     {   
@@ -46,10 +31,5 @@ public class ArcherEnemy : Enemy
         float angle = Mathf.Atan2(direction_y, direction_x) * Mathf.Rad2Deg;
         GameObject newArrow = Instantiate(arrow, shootingPoint.position, Quaternion.AngleAxis(angle, Vector3.forward));
     }
-    private void _ApplyHorizontalSpeed()
-    {
-        Vector2 velocity = rb.velocity;
-        velocity.x = _horizontalSpeed;
-        rb.velocity = velocity;
-    }
+
 }
