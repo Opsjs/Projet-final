@@ -41,8 +41,9 @@ public class ArcherEnemy : Enemy
     }
     private void Shoot()
     {   
-        float angle = Mathf.Atan2(player.position.y, player.position.x) * Mathf.Rad2Deg;
-        Vector3 shootDirection = new Vector3(player.position.x, player.position.y, player.position.z);
+        float direction_x = player.position.x - shootingPoint.position.x;
+        float direction_y = player.position.y - shootingPoint.position.y;
+        float angle = Mathf.Atan2(direction_y, direction_x) * Mathf.Rad2Deg;
         GameObject newArrow = Instantiate(arrow, shootingPoint.position, Quaternion.AngleAxis(angle, Vector3.forward));
     }
     private void _ApplyHorizontalSpeed()
