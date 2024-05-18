@@ -1202,8 +1202,7 @@ GameObject:
   - component: {fileID: 6947671849454967528}
   - component: {fileID: 3453474353516823680}
   - component: {fileID: 3075112487480940772}
-  - component: {fileID: 8404202585842905572}
-  - component: {fileID: 3147356932760098835}
+  - component: {fileID: 5365006631894929979}
   m_Layer: 0
   m_Name: SquareHero_Entity
   m_TagString: Player
@@ -1360,7 +1359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2229f265cb6c3a1449f1f8780762c09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8404202585842905572
+--- !u!114 &5365006631894929979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1369,102 +1368,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6771865885331362632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f67c4811c25bd469475174af6811f9, type: 3}
+  m_Script: {fileID: 11500000, guid: eb49a098cb44bd34093e89090c5c38ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 7212136366118121974}
-  _groundHorizontalMovementSettings:
-    acceleration: 20
-    deceleration: 15
-    turnBackFrictions: 25
-    speedMax: 5
-  _airHorizontalMovementSettings:
-    acceleration: 20
-    deceleration: 15
-    turnBackFrictions: 25
-    speedMax: 5
-  _fallsettings:
-    fallGravity: 20
-    fallSpeedMax: 10
-  _groundDetector: {fileID: 6947671849454967528}
-  _wallDetector: {fileID: 3453474353516823680}
-  _jumpSettings:
-    jumpSpeed: 10
-    jumpMinDuration: 0.1
-    jumpMaxDuration: 0.15
-  dashForce: 0
-  _wallSlideSettings:
-    fallGravity: 20
-    fallSpeedMax: 10
-  _wallJumpSettings:
-    jumpSpeed: 10
-    jumpMinDuration: 0.1
-    jumpMaxDuration: 0.15
-  _orientVisualRoot: {fileID: 3024582456938629764}
-  _orientX: 1
-  _guiDebug: 0
-  cooldown: 1
-  dashSpeed: 10
-  dashDuration: 0.5
-  _dashGroundSettings:
-    jumpSpeed: 10
-    jumpMinDuration: 0.1
-    jumpMaxDuration: 0.15
-  _dashAirSettings:
-    jumpSpeed: 10
-    jumpMinDuration: 0.1
-    jumpMaxDuration: 0.15
-  _dashFallSettings:
-    fallGravity: 20
-    fallSpeedMax: 10
---- !u!114 &3147356932760098835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6771865885331362632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c9b734d7150d148b2556b5e6f51e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 7212136366118121974}
-  _groundHorizontalMovementSettings:
-    acceleration: 20
-    deceleration: 15
-    turnBackFrictions: 25
-    speedMax: 5
-  _airHorizontalMovementSettings:
-    acceleration: 20
-    deceleration: 15
-    turnBackFrictions: 25
-    speedMax: 5
-  _fallsettings:
-    fallGravity: 20
-    fallSpeedMax: 10
-  _groundDetector: {fileID: 6947671849454967528}
-  _wallDetector: {fileID: 3453474353516823680}
-  _jumpSettings:
-    jumpSpeed: 10
-    jumpMinDuration: 0.1
-    jumpMaxDuration: 0.15
-  dashForce: 0
-  _wallSlideSettings:
-    fallGravity: 20
-    fallSpeedMax: 10
-  _wallJumpSettings:
-    jumpSpeed: 10
-    jumpMinDuration: 0.1
-    jumpMaxDuration: 0.15
-  _orientVisualRoot: {fileID: 3024582456938629764}
-  _orientX: 1
-  _guiDebug: 0
-  cooldown: 1
-  damage: 15
-  range: 1.5
-  LightAttackCooldown: 2
-  LightAttackKnockback: 1
+  playerState: 0
+  shotPoint: {fileID: 3815874004950754488}
+  LightArrow: {fileID: 7400771868615414361, guid: ed5daf5a1ef58044f8f824449a0230a1, type: 3}
+  LightAttackLaunchForce: 15
+  LightAttackCooldown: 1
 --- !u!1 &8771659836917567612
 GameObject:
   m_ObjectHideFlags: 0

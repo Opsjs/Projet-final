@@ -17,16 +17,7 @@ public class HeroController : MonoBehaviour
     [SerializeField] private float _coyoteTimeDuration = 0.2f;
     private float _coyoteTimeCountdown = -1f;
 
-    #region PlayerStatus
 
-    [Header("Player Status")]
-    [SerializeField] bool isArcher = true;
-
-    [Header("Player Status Scripts")]
-    [SerializeField] ArcherEntity archerEntity;
-    [SerializeField] KnightEntity knightEntity;
-
-    #endregion
 
     
     private void OnGUI()
@@ -45,30 +36,12 @@ public class HeroController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (isArcher)
-        {
-            archerEntity.enabled = true;
-            knightEntity.enabled = false;
-        } else
-        {
-            archerEntity.enabled = false;
-            knightEntity.enabled = true;
-        }
+        
     }
     private void Update()
     {
         _UpdateJumpBuffer();
-        #region Dash
-        if (_GetInputDownDash())
-        {
-            archerEntity.DashStart();
-        }
-        #endregion
-        if (!archerEntity.IsDashImpulsing)
-        {
-            _entity.SetMoveDirX(GetInputMoveX());
-            
-        }
+        
         
         _entity.SetMoveDirX(GetInputMoveX());
         if (_EntityHasExitGround())

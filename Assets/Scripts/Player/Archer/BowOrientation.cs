@@ -21,20 +21,20 @@ public class BowOrientation : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 bowPosition = transform.position;
-        Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = mousePosition - bowPosition;
-        transform.up = direction;
+            Vector2 bowPosition = transform.position;
+            Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = mousePosition - bowPosition;
+            transform.up = direction;
 
-        if (Input.GetKey(KeyCode.Q))
+        /*if (Input.GetKey(KeyCode.Q))
         {
             if (Time.time - LightAttackLastShot >= LightAttackCooldown)
             {
                 Shoot();
                 LightAttackLastShot = Time.time;
             }
-        }
-        if (Input.GetKey(KeyCode.E))
+        }*/
+        /*if (Input.GetKey(KeyCode.E))
         {
             if (Time.time - HeavyAttackLastShot >= HeavyAttackCooldown)
             {
@@ -45,7 +45,7 @@ public class BowOrientation : MonoBehaviour
         if (Input.GetKey(KeyCode.Tab))
         {
             GameObject newEnemy = Instantiate(enemy, new Vector3(transform.position.x + 3, transform.position.y, transform.position.z), transform.rotation);
-        }
+        }*/
     }
     public void Shoot()
     {

@@ -817,6 +817,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5742126642593305874, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
   m_PrefabInstance: {fileID: 1510265237}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &410332230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1381393285446431087, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
+  m_PrefabInstance: {fileID: 909602783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &478283349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1713,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
+      propertyPath: Bow
+      value: 
+      objectReference: {fileID: 410332230}
+    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 27646243}
     - target: {fileID: 6771865885331362632, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
       propertyPath: m_Name
       value: SquareHero_Entity
@@ -1867,28 +1880,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 182482925853841835, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
   m_PrefabInstance: {fileID: 909602783}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1473029172 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3147356932760098835, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-  m_PrefabInstance: {fileID: 909602783}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c9b734d7150d148b2556b5e6f51e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1473029173 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8404202585842905572, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-  m_PrefabInstance: {fileID: 909602783}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f67c4811c25bd469475174af6811f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1473029174 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3075112487480940772, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
@@ -1979,11 +1970,11 @@ PrefabInstance:
     - target: {fileID: 9096095859244309041, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
       propertyPath: archerEntity
       value: 
-      objectReference: {fileID: 1473029173}
+      objectReference: {fileID: 0}
     - target: {fileID: 9096095859244309041, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
       propertyPath: knightEntity
       value: 
-      objectReference: {fileID: 1473029172}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2715573749518700230, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
     m_RemovedGameObjects: []
@@ -2291,7 +2282,7 @@ PrefabInstance:
       objectReference: {fileID: 1473029171}
     - target: {fileID: 6889307112492733419, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
       propertyPath: m_Name
-      value: enemy
+      value: archerEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7887803620586180731, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
       propertyPath: player
@@ -2706,7 +2697,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3886621676702141025, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
       propertyPath: m_Name
-      value: Square
+      value: knightEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
       propertyPath: Player

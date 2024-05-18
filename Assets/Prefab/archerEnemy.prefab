@@ -173,13 +173,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2654793720320815269}
   - component: {fileID: 2977909277751462591}
-  - component: {fileID: 8664766750295758089}
   - component: {fileID: 2331898288659612965}
   - component: {fileID: 8656615426405756173}
   - component: {fileID: 5369913320464123722}
   m_Layer: 0
-  m_Name: enemy
-  m_TagString: Enemy
+  m_Name: archerEnemy
+  m_TagString: EnemyArcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,21 +251,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8664766750295758089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6889307112492733419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e59084d9af3074ebdf3b2df030bc08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  health: 100
-  Player: {fileID: 321565174174770882, guid: ed5daf5a1ef58044f8f824449a0230a1, type: 3}
 --- !u!50 &2331898288659612965
 Rigidbody2D:
   serializedVersion: 4
@@ -351,14 +335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a200be799a074546ac595e28d60bb56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   health: 40
-  Player: {fileID: 0}
-  offset: 0
+  range: 9.5
   _horizontalSpeed: 0
   player: {fileID: 0}
   enemyBowOrientation: {fileID: 7887803620586180731}
   arrow: {fileID: 7105541748731416905, guid: 6cb47647faa683847a82fd13a44f8d15, type: 3}
-  arrowSpeed: 10
+  arrowSpeed: 5
   shootingPoint: {fileID: 6234893833081651750}
   shootCooldown: 2

@@ -177,6 +177,7 @@ public class HeroEntity : MonoBehaviour
 
     [Header("Orientation")]
     [SerializeField] protected Transform _orientVisualRoot;
+    public Transform OrientVisualRoot { get { return _orientVisualRoot; } }
     [SerializeField] protected float _orientX = 1f;
     //protected float OrientX { get=>_orientX;}
     

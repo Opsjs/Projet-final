@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcherEnemy : Enemy
+public class ArcherEnemy : MonoBehaviour
 {
-    [SerializeField] float offset = 8.75f;
+    public float health;
+    [SerializeField] float range;
     [SerializeField] float _horizontalSpeed;
     [SerializeField] Transform player;
     [SerializeField] EnemyBowOrientation enemyBowOrientation;
@@ -18,11 +19,21 @@ public class ArcherEnemy : Enemy
     }
     private void Update()
     {
-        if (Time.time - LastTimeShot > shootCooldown)
+        if (Time.time - LastTimeShot > shootCooldown && CheckRange())
         {
+
             Shoot();
             LastTimeShot = Time.time;
         }
+    }
+
+    private bool CheckRange()
+    {
+        if ((player.position.x - transform.position.x) < range && -range < (player.position.x - transform.position.x))
+        {
+            return true;
+        }
+        return false;
     }
     private void Shoot()
     {   
@@ -30,6 +41,14 @@ public class ArcherEnemy : Enemy
         float direction_y = player.position.y - shootingPoint.position.y;
         float angle = Mathf.Atan2(direction_y, direction_x) * Mathf.Rad2Deg;
         GameObject newArrow = Instantiate(arrow, shootingPoint.position, Quaternion.AngleAxis(angle, Vector3.forward));
+    }
+    private void CheckHealth()
+    {
+        if (health <= 0)
+        {
+            Debug.Log("Enemy killed");
+            GameObject.Destroy(gameObject);
+        }
     }
 
 }

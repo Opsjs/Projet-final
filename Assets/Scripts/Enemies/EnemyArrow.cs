@@ -26,15 +26,11 @@ public class EnemyArrow : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         healthManager playerHealthManager = collision.collider.GetComponent<healthManager>();
-        Debug.Log(playerHealthManager);
         if (playerHealthManager != null)
         {
             Debug.Log("Vous êtes touché !");
             playerHealthManager.health -= damage;
         }
-        if (!collision.collider.CompareTag("Arrow") && !collision.collider.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

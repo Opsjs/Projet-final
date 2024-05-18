@@ -38,7 +38,6 @@ public class KnightEntity : HeroEntity
 
     private RaycastHit2D CheckEnemyPresence()
     {
-        Debug.Log(_orientX);
         if (_orientVisualRoot.localScale.x == -1)
         {
             RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), -transform.right, range);

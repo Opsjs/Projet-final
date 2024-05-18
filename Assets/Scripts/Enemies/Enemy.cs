@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]protected Rigidbody2D rb;
-    public float health = 40f;
+    public float health;
 
     [SerializeField] protected Transform Player;
 

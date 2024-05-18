@@ -205,8 +205,8 @@ GameObject:
   - component: {fileID: 7995592371501702004}
   - component: {fileID: 7344617734461512105}
   m_Layer: 8
-  m_Name: Square
-  m_TagString: Enemy
+  m_Name: knightEnemy
+  m_TagString: EnemyKnight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -379,12 +379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a64d226d1f4c134eb88a01676c0445e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   health: 60
-  Player: {fileID: 0}
+  detection: 0
   range: 1
   damage: 15
-  transform: {fileID: 8117263722897290463}
   healthManager: {fileID: 0}
   cooldown: 1.5
   _wallDetector: {fileID: 7344617734461512105}
