@@ -37,6 +37,9 @@ public class EnemyArrow : MonoBehaviour
             Debug.Log("Vous êtes touché !");
             playerHealthManager.health -= damage * capacities.damageMultiplier;
         }
-        Destroy(gameObject);
+        if (!collision.collider.CompareTag("Arrow"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

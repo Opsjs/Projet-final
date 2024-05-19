@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class HeroCapacities : MonoBehaviour
 {
+    [Header("Maps")]
+    [SerializeField] GameObject map1;
+    [SerializeField] GameObject map2;
+
+    [Header("Other")]
     [SerializeField] Camera _camera;
     private Vector2 mousePos;
     public int damageMultiplier = 1;
@@ -24,6 +29,8 @@ public class HeroCapacities : MonoBehaviour
         mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            map1.SetActive(!map1.activeSelf);
+            map2.SetActive(!map2.activeSelf);
             swapPlayerState();
         }
 

@@ -25,9 +25,13 @@ public class ArrowBehaviour : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("EnemyArcher"))
         {
-            collision.collider.GetComponent<Enemy>().health -= damage;
+            collision.collider.GetComponent<ArcherEnemy>().health -= damage;
+        }
+        if (collision.collider.CompareTag("EnemyKnight"))
+        {
+            collision.collider.GetComponent<KnightEnemy>().health -= damage;
         }
         if (!collision.collider.CompareTag("Arrow") && !collision.collider.CompareTag("Player"))
         {
