@@ -85,21 +85,34 @@ public class HeroCapacities : MonoBehaviour
         if (Time.time - LastKnightLightAttack >= KnightLightAttackCooldown)
         {
             Debug.Log("Attacking");
-            RaycastHit2D hit = CheckEnemyPresence();
+            RaycastHit2D hit = CheckEnemyPresenceLightAttack();
             if (hit.collider != null && hit.collider.CompareTag("EnemyKnight"))
             {
                 hit.collider.GetComponent<KnightEnemy>().health -= KnightLightAttackDamage;
-                hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightLightAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                if (_entity.OrientVisualRoot.localScale.x == 1)
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightLightAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                } else
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-KnightLightAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                }
             } else if (hit.collider != null && hit.collider.CompareTag("EnemyArcher"))
             {
                 hit.collider.GetComponent<ArcherEnemy>().health -= KnightLightAttackDamage;
-                hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightLightAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                if (_entity.OrientVisualRoot.localScale.x == 1)
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightLightAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-KnightLightAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                }
             }
             LastKnightLightAttack = Time.time;
 
         }
     }
-    private RaycastHit2D CheckEnemyPresence()
+    private RaycastHit2D CheckEnemyPresenceLightAttack()
     {
         if (_entity.OrientVisualRoot.localScale.x == -1)
         {
@@ -112,6 +125,10 @@ public class HeroCapacities : MonoBehaviour
             return hit;
 
         }
+    }
+    private void ApplyKnockBack(float knockback)
+    {
+
     }
     #endregion
     public void LightAttack()
@@ -168,24 +185,53 @@ public class HeroCapacities : MonoBehaviour
         if (Time.time - LastKnightHeavyAttack >= KnightHeavyAttackCooldown)
         {
             Debug.Log("Attacking with Heavy Attack");
-            RaycastHit2D hit = CheckEnemyPresence();
+            RaycastHit2D hit = CheckEnemyPresenceHeavyAttack();
             if (hit.collider != null && hit.collider.CompareTag("EnemyKnight"))
             {
                 hit.collider.GetComponent<KnightEnemy>().health -= KnightHeavyAttackDamage;
-                hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                if (_entity.OrientVisualRoot.localScale.x == 1)
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                }
             }
             else if (hit.collider != null && hit.collider.CompareTag("EnemyArcher"))
             {
                 hit.collider.GetComponent<ArcherEnemy>().health -= KnightHeavyAttackDamage;
-                hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                if (_entity.OrientVisualRoot.localScale.x == 1)
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                }
             }
             LastKnightHeavyAttack = Time.time;
 
         }
     }
+    private RaycastHit2D CheckEnemyPresenceHeavyAttack()
+    {
+        if (_entity.OrientVisualRoot.localScale.x == -1)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), -transform.right, KnightLightAttackRange);
+            return hit;
+        }
+        else
+        {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), transform.right, KnightLightAttackRange);
+            return hit;
 
-    #endregion
-    public void HeavyAttack()
+        }
+    }
+
+
+        #endregion
+        public void HeavyAttack()
     {
         switch (playerState)
         {

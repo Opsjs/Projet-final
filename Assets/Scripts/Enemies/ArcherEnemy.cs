@@ -19,6 +19,7 @@ public class ArcherEnemy : MonoBehaviour
     }
     private void Update()
     {
+        CheckHealth();
         if (Time.time - LastTimeShot > shootCooldown && CheckRange())
         {
 
@@ -50,5 +51,11 @@ public class ArcherEnemy : MonoBehaviour
             GameObject.Destroy(gameObject);
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("DeathZone"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

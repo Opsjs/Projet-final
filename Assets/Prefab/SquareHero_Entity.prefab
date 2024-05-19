@@ -1301,7 +1301,7 @@ MonoBehaviour:
     jumpMaxDuration: 0.15
   _orientVisualRoot: {fileID: 3024582456938629764}
   _orientX: 1
-  _guiDebug: 1
+  _guiDebug: 0
   cooldown: 1
 --- !u!114 &6947671849454967528
 MonoBehaviour:
@@ -1372,10 +1372,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 0
+  _entity: {fileID: 8266633935386537890}
   shotPoint: {fileID: 3815874004950754488}
+  Bow: {fileID: 1381393285446431087}
   LightArrow: {fileID: 7400771868615414361, guid: ed5daf5a1ef58044f8f824449a0230a1, type: 3}
-  LightAttackLaunchForce: 15
-  LightAttackCooldown: 1
+  ArcherLightAttackLaunchForce: 15
+  ArcherLightAttackCooldown: 1
+  KnightLightAttackDamage: 10
+  KnightLightAttackKnockback: 1
+  KnightLightAttackRange: 1
+  KnightLightAttackCooldown: 0.5
+  HeavyArrow: {fileID: 3275746484925454742, guid: 5463319613f86f941b89050c085e0ea9, type: 3}
+  ArcherHeavyAttackLaunchForce: 30
+  ArcherHeavyAttackCooldown: 5
+  KnightHeavyAttackDamage: 25
+  KnightHeavyAttackKnockback: 15
+  KnightHeavyAttackRange: 1.5
+  KnightHeavyAttackCooldown: 2
 --- !u!1 &8771659836917567612
 GameObject:
   m_ObjectHideFlags: 0

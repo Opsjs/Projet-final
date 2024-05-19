@@ -817,11 +817,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5742126642593305874, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
   m_PrefabInstance: {fileID: 1510265237}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &410332230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1381393285446431087, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-  m_PrefabInstance: {fileID: 909602783}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &478283349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,71 +1077,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &594875654
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.6730757
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5242796
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654793720320815269, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369913320464123722, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1473029171}
-    - target: {fileID: 6889307112492733419, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: m_Name
-      value: archerEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7887803620586180731, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1473029171}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8ac1119825a436149b7e3c083eba7a5f, type: 3}
 --- !u!1 &645400345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,42 +1790,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: Bow
-      value: 
-      objectReference: {fileID: 410332230}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 27646243}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: _entity
-      value: 
-      objectReference: {fileID: 1473029177}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: KnightLightAttackRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: KnightLightAttackDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: ArcherLightAttackCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: KnightLightAttackCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: KnightLightAttackKnockback
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365006631894929979, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
-      propertyPath: ArcherLightAttackLaunchForce
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 6771865885331362632, guid: 58ffc10b51f5a6a4996c22f63f520b49, type: 3}
       propertyPath: m_Name
       value: SquareHero_Entity
@@ -2133,20 +2027,7 @@ PrefabInstance:
       propertyPath: _entity
       value: 
       objectReference: {fileID: 1473029177}
-    - target: {fileID: 9096095859244309041, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
-      propertyPath: _guiDebug
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9096095859244309041, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
-      propertyPath: archerEntity
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9096095859244309041, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
-      propertyPath: knightEntity
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2715573749518700230, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2792,14 +2673,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: knightEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3886621676702141025, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
-      propertyPath: m_TagString
-      value: EnemyKnight
-      objectReference: {fileID: 0}
-    - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 1473029171}
     - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
       propertyPath: healthManager
       value: 
@@ -2859,4 +2732,3 @@ SceneRoots:
   - {fileID: 832821465}
   - {fileID: 4255173976769963540}
   - {fileID: 772923010}
-  - {fileID: 594875654}
