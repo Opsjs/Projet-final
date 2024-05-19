@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KnightEnemy : MonoBehaviour
 {
+    [SerializeField] HeroCapacities HeroCapacities;
     public float health;
     [SerializeField] float detection;
     [SerializeField] float range;
@@ -25,7 +26,7 @@ public class KnightEnemy : MonoBehaviour
             if (Time.time - LastUse > cooldown)
             {
                 Debug.Log("Vous êtes touché !");
-                healthManager.health -= damage;
+                healthManager.health -= damage * HeroCapacities.damageMultiplier;
                 LastUse = Time.time;
             }
         }

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class HeroController : MonoBehaviour
 {
+    [Header("Capacities")]
+    [SerializeField] HeroCapacities capacities;
+
     [Header("Entity")]
     [SerializeField] private HeroEntity _entity;
     private bool  _entityWasTouchingGround = false;
@@ -16,8 +19,6 @@ public class HeroController : MonoBehaviour
     [Header("Coyote Time")]
     [SerializeField] private float _coyoteTimeDuration = 0.2f;
     private float _coyoteTimeCountdown = -1f;
-
-
 
     
     private void OnGUI()

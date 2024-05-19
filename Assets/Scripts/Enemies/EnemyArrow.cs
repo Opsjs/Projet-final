@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyArrow : MonoBehaviour
 {
+    private HeroCapacities capacities;
     [SerializeField] float damage = 15f;
     [SerializeField] float LifeTime = 10f;
     [SerializeField] float LifeInit;
@@ -12,6 +13,11 @@ public class EnemyArrow : MonoBehaviour
     private void Start()
     {
         LifeInit = Time.time;
+        capacities = FindObjectOfType<HeroCapacities>();
+        if (capacities == null)
+        {
+            Debug.LogError("Damage Multiplier not found");
+        }
     }
     private void FixedUpdate()
     {
@@ -29,7 +35,7 @@ public class EnemyArrow : MonoBehaviour
         if (playerHealthManager != null)
         {
             Debug.Log("Vous êtes touché !");
-            playerHealthManager.health -= damage;
+            playerHealthManager.health -= damage * capacities.damageMultiplier;
         }
         Destroy(gameObject);
     }

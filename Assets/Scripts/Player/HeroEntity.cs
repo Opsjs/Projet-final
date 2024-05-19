@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class HeroEntity : MonoBehaviour
-{ 
-    
+{
+    [Header("Capacities")]
+    [SerializeField] HeroCapacities capacities;
     [Header("Physics")]
     [SerializeField] public Rigidbody2D _rigidbody;
 
@@ -25,6 +26,7 @@ public class HeroEntity : MonoBehaviour
 
     [Header("Ground")]
     [SerializeField] private GroundDetector _groundDetector;
+    public GroundDetector groundDetector { get => _groundDetector; }
     public bool IsTouchingGround { get; private set; } = false;
 
     [Header("Wall")]
@@ -34,18 +36,19 @@ public class HeroEntity : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private HeroJumpSettings _jumpSettings;
-
+    private bool isDoubleJumping = false;
 
 
     public float dashForce;
 
-    enum JumpState
+    public enum JumpState
     {
         NotJumping, 
         JumpImpulsion,
         Falling,
     }
     private JumpState _jumpstate = JumpState.NotJumping;
+    public JumpState jumpState { get => _jumpstate; }
     private float _jumpTimer = 0f;
     private float _jumpTime = 0f;
     public bool IsJumping => _jumpstate != JumpState.NotJumping;
@@ -236,7 +239,16 @@ public class HeroEntity : MonoBehaviour
             _ChangeOrientFromHorizontalMovement();
         }
         
-
+        if (_jumpstate == JumpState.Falling && !isDoubleJumping)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                capacities.damageMultiplier = 0;
+                isDoubleJumping = true;
+                _jumpstate = JumpState.JumpImpulsion;
+                _jumpTime = 0f;
+            }
+        }
 
         if (IsJumping)
         {
@@ -244,12 +256,15 @@ public class HeroEntity : MonoBehaviour
         }
         else
         {
+            
             if (!IsTouchingGround)
             {
                 _ApplyFallGravity(_fallsettings);
             }
             else
             {
+                isDoubleJumping = false;
+                capacities.damageMultiplier = 1;
                 _ResetVerticalSpeed();
             }
         }

@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeroCapacities : MonoBehaviour
 {
+    [SerializeField] Camera _camera;
+    private Vector2 mousePos;
+    public int damageMultiplier = 1;
+    
     public enum PlayerState
     {
         Archer,
@@ -12,8 +17,11 @@ public class HeroCapacities : MonoBehaviour
     public PlayerState playerState = PlayerState.Archer;
     [SerializeField] HeroEntity _entity;
 
+
     private void FixedUpdate()
     {
+        Debug.Log(damageMultiplier);
+        mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             swapPlayerState();
@@ -26,6 +34,17 @@ public class HeroCapacities : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             HeavyAttack();
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            NonOffensiveCapacity();
+        }
+        if (playerState == PlayerState.Knight)
+        {
+            if (damageMultiplier == 0 && Time.time > LastShieldUse + immunityTime)
+            {
+                damageMultiplier = 1;
+            }
         }
     }
 
@@ -42,10 +61,10 @@ public class HeroCapacities : MonoBehaviour
         }
     }
 
-    #region Light Attack
     [Header("Archer")]
     public Transform shotPoint;
     [SerializeField] GameObject Bow;
+    #region Light Attack
 
     #region Archer Light Attack
     
@@ -244,5 +263,37 @@ public class HeroCapacities : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Non Offensive Capacities
+
+    #region Knight Shield
+    [SerializeField] float immunityTime;
+    [SerializeField] float immunityCooldown;
+    [SerializeField] float LastShieldUse;
+    private float shieldStart;
+    private void KnightShield()
+    {
+        if (Time.time - LastShieldUse > immunityCooldown)
+        {
+            damageMultiplier = 0;
+            LastShieldUse = Time.time;
+        }
+    }
+
+    #endregion
+
+
+
+    private void NonOffensiveCapacity()
+    {
+        switch (playerState)
+        {
+            case PlayerState.Knight:
+                shieldStart = Time.time;
+                KnightShield();
+                break;
+        }
+    }
     #endregion
 }
