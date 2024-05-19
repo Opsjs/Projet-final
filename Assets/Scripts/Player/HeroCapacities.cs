@@ -14,7 +14,7 @@ public class HeroCapacities : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             swapPlayerState();
         }
@@ -23,9 +23,9 @@ public class HeroCapacities : MonoBehaviour
         {
             LightAttack();
         }
-        if (playerState == PlayerState.Archer)
+        if (Input.GetKey(KeyCode.E))
         {
-
+            HeavyAttack();
         }
     }
 
@@ -60,12 +60,12 @@ public class HeroCapacities : MonoBehaviour
         if (Time.time - LastArcherLightAttack >= ArcherLightAttackCooldown)
         {
             Debug.Log("shooting");
-            Shoot();
+            ShootLightAttack();
             LastArcherLightAttack = Time.time;
         }
     }
 
-    public void Shoot()
+    public void ShootLightAttack()
     {
         GameObject newArrow = Instantiate(LightArrow, shotPoint.position, shotPoint.rotation);
         newArrow.GetComponent<Rigidbody2D>().velocity = Bow.transform.up * ArcherLightAttackLaunchForce;
@@ -74,7 +74,7 @@ public class HeroCapacities : MonoBehaviour
 
     #region Knight Light Attack
 
-    [Header("KnightLightAttack")]
+    [Header("Knight Light Attack")]
     [SerializeField] float KnightLightAttackDamage;
     [SerializeField] float KnightLightAttackKnockback;
     [SerializeField] float KnightLightAttackRange;
@@ -126,5 +126,77 @@ public class HeroCapacities : MonoBehaviour
                 break;
         }
     }
+    #endregion
+
+    #region Heavy Attacks
+
+    #region Archer Heavy Attack
+    [Header("Archer Heavy Attack")]
+    [SerializeField] GameObject HeavyArrow;
+    [SerializeField] float ArcherHeavyAttackLaunchForce;
+    [SerializeField] float ArcherHeavyAttackCooldown;
+    private float LastArcherHeavyAttack;
+    public void ArcherHeavyAttack()
+    {
+        if (Time.time - LastArcherHeavyAttack >= ArcherHeavyAttackCooldown)
+        {
+            Debug.Log("Shooting Heavy Attack");
+            ShootHeavyAttack();
+            LastArcherHeavyAttack = Time.time;
+        }
+    }
+
+    public void ShootHeavyAttack()
+    {
+        GameObject newArrow = Instantiate(HeavyArrow, shotPoint.position, shotPoint.rotation);
+        newArrow.GetComponent<Rigidbody2D>().velocity = Bow.transform.up * ArcherHeavyAttackLaunchForce;
+    }
+
+    #endregion
+
+    #region Knight Heavy Attack
+
+    [Header("Knight Heavy Attack")]
+    [SerializeField] float KnightHeavyAttackDamage;
+    [SerializeField] float KnightHeavyAttackKnockback;
+    [SerializeField] float KnightHeavyAttackRange;
+    [SerializeField] float KnightHeavyAttackCooldown;
+    private float LastKnightHeavyAttack;
+
+    public void KnightHeavyAttack()
+    {
+        if (Time.time - LastKnightHeavyAttack >= KnightHeavyAttackCooldown)
+        {
+            Debug.Log("Attacking with Heavy Attack");
+            RaycastHit2D hit = CheckEnemyPresence();
+            if (hit.collider != null && hit.collider.CompareTag("EnemyKnight"))
+            {
+                hit.collider.GetComponent<KnightEnemy>().health -= KnightHeavyAttackDamage;
+                hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+            }
+            else if (hit.collider != null && hit.collider.CompareTag("EnemyArcher"))
+            {
+                hit.collider.GetComponent<ArcherEnemy>().health -= KnightHeavyAttackDamage;
+                hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+            }
+            LastKnightHeavyAttack = Time.time;
+
+        }
+    }
+
+    #endregion
+    public void HeavyAttack()
+    {
+        switch (playerState)
+        {
+            case PlayerState.Archer:
+                ArcherHeavyAttack();
+                break;
+            case PlayerState.Knight:
+                KnightHeavyAttack();
+                break;
+        }
+    }
+
     #endregion
 }
