@@ -11,6 +11,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float maxSpeed;
     [SerializeField] float DetectionRange;
     [SerializeField] HeroEntity Hero;
+
+    [SerializeField] HeroCapacities HeroCapacities;
+    [SerializeField] float knockbackCounter;
+    [SerializeField] float knockbackTotalTime;
+    public bool knocked;
     private enum directions
     {
         Left,
@@ -27,15 +32,31 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckPlayerPosition();
-        if (rb2d.velocity.x > maxSpeed)
+
+/*        if (knockbackCounter <= 0 )
+        {*/
+            CheckPlayerPosition();
+            Debug.Log("moving");
+            if (rb2d.velocity.x > maxSpeed)
+            {
+                rb2d.velocity = new Vector2 (maxSpeed, rb2d.velocity.y);
+            }
+            if (Mathf.Abs(Vector2.Distance(player.transform.position, transform.position)) < DetectionRange)
+            {
+                Move();
+            }
+/*            
+        } else
         {
-            rb2d.velocity = new Vector2 (maxSpeed, rb2d.velocity.y);
-        }
-        if (Mathf.Abs(Vector2.Distance(player.transform.position, transform.position)) < DetectionRange)
-        {
-            Move();
-        }
+            if (playerDirection == directions.Right && knocked)
+            {
+                rb2d.velocity = new Vector2(-HeroCapacities.KnightHeavyAttackKnockback, 0);
+            } else if (playerDirection == directions.Left && knocked)
+            {
+                rb2d.velocity = new Vector2(HeroCapacities.KnightHeavyAttackKnockback, 0);
+            }
+            knockbackCounter -= Time.fixedDeltaTime;
+        }*/
     }
 
     private void CheckPlayerPosition()
@@ -57,37 +78,12 @@ public class EnemyMovement : MonoBehaviour
         Vector2 enemyPos = new Vector2(transform.position.x, transform.position.y);
         Vector2 playerPos = player.transform.position;
         float distance = Vector2.Distance(playerPos, enemyPos);
-        float velocityX = distance * speed;
         if (playerDirection == directions.Left && Hero.IsTouchingGround)
         {
-            rb2d.velocity = new Vector2(-velocityX, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(-distance, rb2d.velocity.y).normalized * speed;
         } else if (playerDirection == directions.Right && Hero.IsTouchingGround) 
         {
-            rb2d.velocity = new Vector2 (velocityX, rb2d.velocity.y);
+            rb2d.velocity = new Vector2 (distance, rb2d.velocity.y).normalized * speed;
         }
     }
-
-    private void _ApplyFallGravity(HeroFallSettings settings)
-    {
-        _verticalSpeed -= settings.fallGravity * Time.fixedDeltaTime;
-        if (_verticalSpeed < -settings.fallSpeedMax)
-        {
-            _verticalSpeed = -settings.fallSpeedMax;
-        }
-    }
-
-
-
-    IEnumerator MoveOverTime(Vector3 start, Vector3 end, float duration)
-    {
-        float elapsedTime = 0f;
-        while (elapsedTime < duration)
-        {
-            rb2d.velocity = Vector3.Lerp(start, end, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = end; // Assurer que la position finale est atteinte
-    }
-
 }

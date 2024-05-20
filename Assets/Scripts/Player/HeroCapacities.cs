@@ -205,7 +205,7 @@ public class HeroCapacities : MonoBehaviour
 
     [Header("Knight Heavy Attack")]
     [SerializeField] float KnightHeavyAttackDamage;
-    [SerializeField] float KnightHeavyAttackKnockback;
+    public float KnightHeavyAttackKnockback;
     [SerializeField] float KnightHeavyAttackRange;
     [SerializeField] float KnightHeavyAttackCooldown;
     private float LastKnightHeavyAttack;
@@ -219,13 +219,19 @@ public class HeroCapacities : MonoBehaviour
             if (hit.collider != null && hit.collider.CompareTag("EnemyKnight"))
             {
                 hit.collider.GetComponent<KnightEnemy>().health -= KnightHeavyAttackDamage;
+                hit.collider.GetComponent<KnightEnemy>().knocked = true;
                 if (_entity.OrientVisualRoot.localScale.x == 1)
                 {
-                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                    Debug.Log("knockback");
+                    hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                    hit.collider.transform.GetComponent<KnightEnemy>().knockbackTotalTime = KnightHeavyAttackKnockback;
+                    //new Vector2(KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y);
                 }
                 else
                 {
                     hit.collider.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-KnightHeavyAttackKnockback, transform.position.y - hit.collider.transform.position.y), ForceMode2D.Impulse);
+                    hit.collider.transform.GetComponent<KnightEnemy>().knockbackTotalTime = KnightHeavyAttackKnockback;
+
                 }
             }
             else if (hit.collider != null && hit.collider.CompareTag("EnemyArcher"))
@@ -244,6 +250,7 @@ public class HeroCapacities : MonoBehaviour
 
         }
     }
+    
     private RaycastHit2D CheckEnemyPresenceHeavyAttack()
     {
         if (_entity.OrientVisualRoot.localScale.x == -1)
