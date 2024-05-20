@@ -35,7 +35,7 @@ public class EnemyArrow : MonoBehaviour
         if (playerHealthManager != null)
         {
             Debug.Log("Vous êtes touché !");
-            playerHealthManager.health -= damage * capacities.damageMultiplier;
+            playerHealthManager.TakeDamage(damage * capacities.damageMultiplier);
         }
         if (!collision.collider.CompareTag("Arrow"))
         {

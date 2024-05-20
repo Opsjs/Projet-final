@@ -52,7 +52,7 @@ public class ArcherEntity : HeroEntity
     }
     private DashState _dashstate = DashState.NotDashing;
     private float _dashTimer = 0f;
-    private float _dashTime = 0f;
+    //private float _dashTime = 0f;
     public bool IsDashing => _dashstate != DashState.NotDashing;
     public bool IsDashImpulsing => _dashstate == DashState.DashImpulsion;
     public bool IsGroundDashMinDurationReached => _dashTimer >= _dashGroundSettings.jumpMinDuration;

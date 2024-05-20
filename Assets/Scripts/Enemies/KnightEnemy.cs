@@ -26,7 +26,7 @@ public class KnightEnemy : MonoBehaviour
             if (Time.time - LastUse > cooldown)
             {
                 Debug.Log("Vous êtes touché !");
-                healthManager.health -= damage * HeroCapacities.damageMultiplier;
+                healthManager.TakeDamage(damage * HeroCapacities.damageMultiplier);
                 LastUse = Time.time;
             }
         }

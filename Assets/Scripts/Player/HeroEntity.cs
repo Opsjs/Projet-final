@@ -8,6 +8,8 @@ public class HeroEntity : MonoBehaviour
 {
     [Header("Capacities")]
     [SerializeField] HeroCapacities capacities;
+    [Header("Health")]
+    [SerializeField] healthManager playerHealth;
     [Header("Physics")]
     [SerializeField] public Rigidbody2D _rigidbody;
 
@@ -215,7 +217,7 @@ public class HeroEntity : MonoBehaviour
     {
         if (collision.CompareTag("DeathZone"))
         {
-            transform.position = _respawnPoint;
+            playerHealth.TakeDamage(100000000);
         }
     }
 
