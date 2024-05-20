@@ -366,7 +366,7 @@ public class HeroEntity : MonoBehaviour
         return _moveDirX * _orientX < 0f;
     }
 
-    protected void _ApplyFallGravity(HeroFallSettings settings)
+    private void _ApplyFallGravity(HeroFallSettings settings)
     {
         _verticalSpeed -= settings.fallGravity * Time.fixedDeltaTime;
         if (_verticalSpeed < -settings.fallSpeedMax)

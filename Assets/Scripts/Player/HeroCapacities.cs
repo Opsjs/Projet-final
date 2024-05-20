@@ -22,7 +22,11 @@ public class HeroCapacities : MonoBehaviour
     public PlayerState playerState = PlayerState.Archer;
     [SerializeField] HeroEntity _entity;
 
-
+    private void Start()
+    {
+        map1.SetActive(true);
+        map2.SetActive(false);
+    }
     private void FixedUpdate()
     {
         Debug.Log(damageMultiplier);

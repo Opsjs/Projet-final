@@ -21,7 +21,7 @@ public class KnightEnemy : MonoBehaviour
     {
         CheckHealth();
         _ApplyWallDetection();
-        if (IsTouchingWallLeft)
+        if (IsTouchingWallLeft || IsTouchingWallRight)
         {
             if (Time.time - LastUse > cooldown)
             {

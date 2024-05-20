@@ -121,7 +121,7 @@ public class ArcherEntity : HeroEntity
         if (!IsTouchingGround)
         {
             _ResetHorizontalSpeed();
-            _ApplyFallGravity(_dashFallSettings);
+            //_ApplyFallGravity(_dashFallSettings);
         } else
         {
             _ResetHorizontalSpeed();
