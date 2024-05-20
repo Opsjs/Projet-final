@@ -33,6 +33,10 @@ public class ArrowBehaviour : MonoBehaviour
         {
             collision.collider.GetComponent<KnightEnemy>().health -= damage;
         }
+        if (collision.collider.CompareTag("Breakable"))
+        {
+            Destroy(collision.collider.gameObject);
+        }
         if (!collision.collider.CompareTag("Arrow") && !collision.collider.CompareTag("Player"))
         {
             Destroy(gameObject);

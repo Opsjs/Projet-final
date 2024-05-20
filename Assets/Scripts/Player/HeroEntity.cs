@@ -37,7 +37,9 @@ public class HeroEntity : MonoBehaviour
     public bool IsTouchingWallRight { get; private set; } = false;
 
     [Header("Jump")]
-    [SerializeField] private HeroJumpSettings _jumpSettings;
+    //[SerializeField] private HeroJumpSettings _jumpSettings;
+    [SerializeField] private HeroJumpSettings archerJumpSettings;
+    [SerializeField] private HeroJumpSettings knightJumpSettings;
     private bool isDoubleJumping = false;
 
 
@@ -55,7 +57,10 @@ public class HeroEntity : MonoBehaviour
     private float _jumpTime = 0f;
     public bool IsJumping => _jumpstate != JumpState.NotJumping;
     public bool IsJumpImpulsing => _jumpstate == JumpState.JumpImpulsion;
-    public bool IsJumpMinDurationReached => _jumpTimer >= _jumpSettings.jumpMinDuration;
+    //public bool IsJumpMinDurationReached => _jumpTimer >= _jumpSettings.jumpMinDuration;
+    public bool IsArcherJumpMinDurationReached => _jumpTimer >= archerJumpSettings.jumpMinDuration;
+    public bool IsKnightJumpMinDurationReached => _jumpTimer >= knightJumpSettings.jumpMinDuration;
+
 
     /*#region dash
     [Header("Dash")]
@@ -241,7 +246,7 @@ public class HeroEntity : MonoBehaviour
             _ChangeOrientFromHorizontalMovement();
         }
         
-        if (_jumpstate == JumpState.Falling && !isDoubleJumping)
+        if (_jumpstate == JumpState.Falling && !isDoubleJumping && capacities.playerState == HeroCapacities.PlayerState.Archer)
         {
             if (Input.GetKey(KeyCode.Space))
             {
@@ -403,9 +408,11 @@ public class HeroEntity : MonoBehaviour
     private void _UpdateJumpStateImpulsion()
     {
         _jumpTimer += Time.fixedDeltaTime;
-        if (_jumpTimer < _jumpSettings.jumpMaxDuration)
+        if (capacities.playerState == HeroCapacities.PlayerState.Archer && _jumpTimer < archerJumpSettings.jumpMaxDuration)
         {
-            _verticalSpeed = _jumpSettings.jumpSpeed;
+            _verticalSpeed = archerJumpSettings.jumpSpeed;
+        } else if (capacities.playerState == HeroCapacities.PlayerState.Knight && _jumpTimer < knightJumpSettings.jumpMaxDuration){
+            _verticalSpeed = knightJumpSettings.jumpSpeed;
         }
         else
         {

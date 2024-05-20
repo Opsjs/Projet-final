@@ -10,6 +10,7 @@ TagManager:
   - EnemyKnight
   - Arrow
   - EnemyArcher
+  - Breakable
   layers:
   - Default
   - TransparentFX

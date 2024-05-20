@@ -2123,16 +2123,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
       propertyPath: damage
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
       propertyPath: health
-      value: 1000
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1473029171}
+    - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
+      propertyPath: knocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7995592371501702004, guid: 2b5f036ba49f7fd4495570635c4f1473, type: 3}
       propertyPath: maxSpeed
       value: 3.5
@@ -2422,6 +2426,10 @@ PrefabInstance:
       propertyPath: _entity
       value: 
       objectReference: {fileID: 1473029177}
+    - target: {fileID: 9096095859244309041, guid: 6ad9f89a1de0f6849aa1265154727cfe, type: 3}
+      propertyPath: capacities
+      value: 
+      objectReference: {fileID: 2057018390}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

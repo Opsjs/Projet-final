@@ -71,10 +71,16 @@ public class HeroController : MonoBehaviour
         }
         if (_entity.IsJumpImpulsing)
         {
-            if (!_GetInputJump() && _entity.IsJumpMinDurationReached)
+
+            if (!_GetInputJump() && capacities.playerState == HeroCapacities.PlayerState.Archer && _entity.IsArcherJumpMinDurationReached)
             {
                 _entity.StopJumpImpulsion();
             }
+            if (!_GetInputJump() && capacities.playerState == HeroCapacities.PlayerState.Knight && _entity.IsKnightJumpMinDurationReached)
+            {
+                _entity.StopJumpImpulsion();
+            }
+
         }
         _entityWasTouchingGround = _entity.IsTouchingGround;
     }
