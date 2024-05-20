@@ -15,6 +15,7 @@ public class LoadScript : MonoBehaviour
     }
     public void ChangeScene()
     {
+        Debug.Log("Loading");
         GameObject LoadScreen = Instantiate(LoadingScreen);
         LoadGetInfo slider = LoadScreen.GetComponent<LoadGetInfo>();
         StartCoroutine(AsyncLoadScnene(SceneManager.GetActiveScene().buildIndex, slider.sliderGet));

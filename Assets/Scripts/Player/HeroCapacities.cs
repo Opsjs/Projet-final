@@ -31,8 +31,9 @@ public class HeroCapacities : MonoBehaviour
     {
         Debug.Log(damageMultiplier);
         mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.C))
         {
+            Debug.Log("map change");
             map1.SetActive(!map1.activeSelf);
             map2.SetActive(!map2.activeSelf);
             swapPlayerState();
