@@ -48,7 +48,6 @@ public class KnightEnemy : MonoBehaviour
         if (knockbackCounter <= 0)
         {
             CheckPlayerPosition();
-            Debug.Log("moving");
             if (rb2d.velocity.x > maxSpeed)
             {
                 rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);

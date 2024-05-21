@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.82, y: 0.94, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1429573334887334415}
   - {fileID: 7899891496223623819}
@@ -175,13 +175,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeroCapacities: {fileID: 0}
-  health: 60
+  health: 120
   detection: 0
   range: 1
-  damage: 15
+  damage: 25
   healthManager: {fileID: 0}
   cooldown: 1.5
   _wallDetector: {fileID: 5839122932155148992}
+  player: {fileID: 0}
+  speed: 4.5
+  maxSpeed: 4.5
+  DetectionRange: 12.5
+  Hero: {fileID: 0}
+  knockbackCounter: 0
+  knockbackTotalTime: 0
+  knocked: 0
 --- !u!114 &5839122932155148992
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeroCapacities : MonoBehaviour
 {
@@ -29,9 +30,9 @@ public class HeroCapacities : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(damageMultiplier);
+        Debug.Log("Multiplicateur de Dégâts : " + damageMultiplier);
         mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && SceneManager.GetActiveScene().buildIndex != 2)
         {
             Debug.Log("map change");
             map1.SetActive(!map1.activeSelf);
@@ -39,15 +40,15 @@ public class HeroCapacities : MonoBehaviour
             swapPlayerState();
         }
 
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             LightAttack();
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Z))
         {
             HeavyAttack();
         }
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKey(KeyCode.Q))
         {
             NonOffensiveCapacity();
         }
@@ -295,6 +296,7 @@ public class HeroCapacities : MonoBehaviour
     {
         if (Time.time - LastShieldUse > immunityCooldown)
         {
+            Debug.Log("Defending");
             damageMultiplier = 0;
             LastShieldUse = Time.time;
         }
